@@ -1,0 +1,505 @@
+/* @group FONT-FACES */
+
+	/*
+	 * fonts:
+	 *  - synthese 400,600
+	 *  - libesans condensed 400,200
+	 *  - libesans semicondensed 400,800
+	 *  - libetypewriter 400
+	 *  - libetypewriter underline 400
+	*/
+
+	@font-face {
+		font-family: 'syntheselibeweb';
+		src: url('assets/fonts/syntheselibeweb-regular.woff') format('woff'),
+			 url('assets/fonts/syntheselibeweb-regular.ttf') format('truetype');
+
+		font-style: normal;
+		font-weight: 400;
+	}
+
+	@font-face {
+		font-family: 'syntheselibeweb';
+		src: url('assets/fonts/syntheselibeweb-bold.woff') format('woff'),
+			 url('assets/fonts/syntheselibeweb-bold.ttf') format('truetype');
+
+		font-style: normal;
+		font-weight: 600;
+	}
+
+	@font-face {
+		font-family: 'libesansweb-condensed';
+		src: url('assets/fonts/libesansweb-condensed-regular.woff') format('woff'),
+			 url('assets/fonts/libesansweb-condensed-regular.otf') format('opentype');
+
+		font-style: normal;
+		font-weight: 400;
+	}
+
+	@font-face {
+		font-family: 'libesansweb-condensed';
+		src: url('assets/fonts/libesansweb-condensed-light.woff') format('woff'),
+			 url('assets/fonts/libesansweb-condensed-light.otf') format('opentype');
+
+		font-style: normal;
+		font-weight: 200;
+	}
+
+	@font-face {
+		font-family: 'libesansweb-semicondensed';
+		src: url('assets/fonts/libesansweb-semicondensed-regular.woff') format('woff'),
+			 url('assets/fonts/libesansweb-semicondensed-regular.otf') format('opentype');
+
+		font-style: normal;
+		font-weight: 400;
+	}
+
+	@font-face {
+		font-family: 'libesansweb-semicondensed';
+		src: url('assets/fonts/libesansweb-semicondensed-black.woff') format('woff'),
+			 url('assets/fonts/libesansweb-semicondensed-black.otf') format('opentype');
+
+		font-style: normal;
+		font-weight: 800;
+	}
+
+	@font-face {
+		font-family: 'libetypewriter-regular';
+		src: url('assets/fonts/libetypewriter-regular.woff') format('woff'),
+			 url('assets/fonts/libetypewriter-regular.otf') format('opentype');
+
+		font-style: normal;
+		font-weight: 400;
+	}
+
+	@font-face {
+		font-family: 'libetypewriter-regular-underline';
+		src: url('assets/fonts/libetypewriterweb-regularunderline.woff') format('woff'),
+			 url('assets/fonts/libetypewriterweb-regularunderline.otf') format('opentype');
+
+		font-style: normal;
+		font-weight: 400;
+	}
+
+	@font-face {
+		font-family: 'libesansweb-black';
+		src: url('assets/fonts/libesansweb-black.woff') format('woff'),
+			 url('assets/fonts/libesansweb-black.otf') format('opentype');
+
+		font-style: normal;
+		font-weight: 400;
+	}
+
+/* @end FONT-FACES */
+
+#main-header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: block;
+    z-index: 300;
+
+    width: 100%;
+    height: 50px;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+         -o-box-sizing: border-box;
+            box-sizing: border-box;
+
+    background-color: #fff;
+    color: rgb(0, 0, 0);
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 23px;
+    list-style-type: none;
+
+    box-shadow: 1px 0 15px rgba(0, 0, 0, .1);
+}
+
+.wrap{
+    display: block;
+
+    width: 70%;
+    height: 50px;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+         -o-box-sizing: border-box;
+            box-sizing: border-box;
+    margin: 0 auto;
+}
+
+.navbar-brand a img{
+    display: block;
+
+    width: 90.8125px;
+    max-width: 100%;
+    height: 33px;
+    max-height: 33px;
+
+    vertical-align: top;
+}
+
+.navbar-brand{
+    display: block;
+    position: absolute;
+
+    height: 50px;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+         -o-box-sizing: border-box;
+            box-sizing: border-box;
+    padding: 8px 0;
+
+    float: none;
+}
+
+@media screen and (max-width: 995px) {
+    .wrap {
+        width: 100%;
+        margin: 0 0;
+    }
+
+    .navbar-brand{
+        padding-left: 8px;
+    }
+}
+body {
+  background-color: #fff;
+}
+.col-lg-1,
+.col-lg-10,
+.col-lg-11,
+.col-lg-12,
+.col-lg-13,
+.col-lg-14,
+.col-lg-15,
+.col-lg-16,
+.col-lg-17,
+.col-lg-18,
+.col-lg-19,
+.col-lg-2,
+.col-lg-20,
+.col-lg-21,
+.col-lg-22,
+.col-lg-23,
+.col-lg-24,
+.col-lg-3,
+.col-lg-4,
+.col-lg-5,
+.col-lg-6,
+.col-lg-7,
+.col-lg-8,
+.col-lg-9,
+.col-md-1,
+.col-md-10,
+.col-md-11,
+.col-md-12,
+.col-md-13,
+.col-md-14,
+.col-md-15,
+.col-md-16,
+.col-md-17,
+.col-md-18,
+.col-md-19,
+.col-md-2,
+.col-md-20,
+.col-md-21,
+.col-md-22,
+.col-md-23,
+.col-md-24,
+.col-md-3,
+.col-md-4,
+.col-md-5,
+.col-md-6,
+.col-md-7,
+.col-md-8,
+.col-md-9,
+.col-sm-1,
+.col-sm-10,
+.col-sm-11,
+.col-sm-12,
+.col-sm-13,
+.col-sm-14,
+.col-sm-15,
+.col-sm-16,
+.col-sm-17,
+.col-sm-18,
+.col-sm-19,
+.col-sm-2,
+.col-sm-20,
+.col-sm-21,
+.col-sm-22,
+.col-sm-23,
+.col-sm-24,
+.col-sm-3,
+.col-sm-4,
+.col-sm-5,
+.col-sm-6,
+.col-sm-7,
+.col-sm-8,
+.col-sm-9,
+.col-xs-1,
+.col-xs-10,
+.col-xs-11,
+.col-xs-12,
+.col-xs-13,
+.col-xs-14,
+.col-xs-15,
+.col-xs-16,
+.col-xs-17,
+.col-xs-18,
+.col-xs-19,
+.col-xs-2,
+.col-xs-20,
+.col-xs-21,
+.col-xs-22,
+.col-xs-23,
+.col-xs-24,
+.col-xs-3,
+.col-xs-4,
+.col-xs-5,
+.col-xs-6,
+.col-xs-7,
+.col-xs-8,
+.col-xs-9 {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 100%;
+    max-width: 1280px;
+  }
+}
+.phase__finale {
+  font-family: 'libesansweb-semicondensed';
+  font-size: 1.4em;
+  color: #C6C6C6;
+  letter-spacing: 0.06em;
+}
+.group__flag {
+  display: inline-block;
+  list-style-type: none;
+  width: 100px;
+  margin-top: 0.5em;
+  padding: 0.25em;
+  cursor: move;
+}
+.group__flag img {
+  width: 100%;
+}
+.group__flag span {
+  display: none;
+}
+#container {
+  margin-top: 50px;
+}
+#container svg,
+#container a.download {
+  display: none !important;
+}
+#container .title {
+  margin-bottom: 4em;
+}
+#container .title h1 {
+  font-family: 'libesansweb-semicondensed', sans-serif;
+  font-size: 4em;
+  font-weight: bold;
+  color: #e3234a;
+  text-align: center;
+  letter-spacing: .05em;
+}
+#container .title p {
+  width: 75%;
+  margin: 0 auto;
+  font-family: 'syntheselibeweb', sans-serif;
+}
+#container .title__chapo {
+  color: #e3234a;
+}
+#container .group {
+  text-align: center;
+}
+#container .group__name {
+  font-family: 'libesansweb-semicondensed', sans-serif;
+  font-size: 2em;
+  font-weight: bold;
+  color: #c6c6c6;
+  text-align: center;
+}
+#container .group__inner {
+  padding: 0 .5em;
+  padding-bottom: .5em;
+  background-color: #f4f4f4;
+  text-align: left;
+}
+#container .group__inner select:first-of-type {
+  margin-bottom: .5em;
+}
+#container .group ul {
+  list-style-type: none;
+}
+#container .group__flags {
+  padding: 0;
+  margin: 0 auto 1.5em auto;
+}
+#container .group__flag {
+  display: inline-block;
+  list-style-type: none;
+  width: 50%;
+  margin-top: 0.5em;
+  padding: 0.25em;
+  cursor: move;
+}
+#container .group__flag img {
+  width: 100%;
+}
+#container .group__flag span {
+  display: none;
+}
+#container .group__pronostics {
+  padding: 0;
+  margin-bottom: 0;
+}
+#container .group__pronostic {
+  display: block;
+  width: 100%;
+  height: 2em;
+  margin-bottom: .5em;
+  font-family: 'syntheselibeweb', sans-serif;
+  text-align: center;
+  line-height: 1.7em;
+}
+#container .group__pronostic:last-child {
+  margin-bottom: 0;
+}
+#container .group__pronostic--empty {
+  background-color: #c6c6c6;
+}
+#container .group__pronostic img {
+  display: none;
+}
+#container .group__pronostic li {
+  display: none;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  font-size: 1.2em;
+}
+#container .group__pronostic li:last-of-type {
+  display: inline-block;
+}
+#container .group__pronostic li span {
+  display: inline-block;
+}
+#container .eighthfinals {
+  margin-top: 3em;
+}
+#container .winner {
+  overflow-x: hidden;
+}
+#container .winner > div {
+  padding: 0;
+}
+#container .winner .team {
+  height: auto !important;
+  padding-top: 20em;
+  padding-bottom: 1em;
+  background-image: url(assets/coupe.svg);
+  background-size: auto 80%;
+  background-repeat: no-repeat;
+  background-position: center 1em;
+  font-size: 1.8em !important;
+}
+#container .eighthfinals,
+#container .quarterfinals,
+#container .semifinals,
+#container .final,
+#container .winner {
+  text-align: center;
+}
+#container .eighthfinals .group__name,
+#container .quarterfinals .group__name,
+#container .semifinals .group__name,
+#container .final .group__name,
+#container .winner .group__name {
+  font-size: 1.3em;
+}
+#container .eighthfinals .team,
+#container .quarterfinals .team,
+#container .semifinals .team,
+#container .final .team,
+#container .winner .team {
+  display: block;
+  width: 100%;
+  height: 2em;
+  font-family: 'syntheselibeweb', sans-serif;
+  font-size: 1.2em;
+  line-height: 1.7em;
+  cursor: pointer;
+}
+#container .eighthfinals a,
+#container .quarterfinals a,
+#container .semifinals a,
+#container .final a,
+#container .winner a {
+  color: #c6c6c6;
+  cursor: pointer;
+}
+#container .buttons {
+  margin: 2em 0;
+  text-align: center;
+}
+#container .buttons button {
+  margin-bottom: 1em;
+  padding: .6em .8em;
+  border: none;
+  background-color: #e3234a;
+  color: #fff;
+}
+#container .buttons a {
+  display: inline-block;
+  width: 150px;
+}
+#container .buttons a img {
+  width: 100%;
+}
+.group__flag {
+  list-style-type: none;
+}
+.group__flag span {
+  display: none;
+}
+@media (max-width: 775px) {
+  #container .title h1 {
+    font-size: 3.2em;
+  }
+  #container .title p {
+    width: 90%;
+  }
+  #container .eighthfinals {
+    margin-bottom: 3em;
+  }
+  #container .eighthfinals .col-xs-3 {
+    width: 50% !important;
+    margin-bottom: 1em;
+  }
+  #container .eighthfinals .arrow {
+    display: none;
+  }
+  #container .eighthfinals .team,
+  #container .quarterfinals .team,
+  #container .semifinals .team,
+  #container .final .team,
+  #container .winner .team {
+    font-size: .8em;
+  }
+  #container .winner .team {
+    padding-top: 200px;
+    padding-bottom: 0;
+    font-size: 1.5em;
+  }
+  #container .winner .team span {
+    margin-top: 2em;
+  }
+}

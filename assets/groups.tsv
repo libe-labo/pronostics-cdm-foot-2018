@@ -1,0 +1,33 @@
+Id	Iso	Pays	Initiales	Pays complet	Groupe	Couleur	Couleur texte
+1	FR	France	Fra	France	C	#1b1464	#ffffff
+2	RU	Russie	Rus	Russie	A	#860040	#ffffff
+3	DE	Allemagne	All	Allemagne	F	#fffaf3	#000000
+4	BR	Brésil	Bré	Brésil	E	#ffcd00	#00ba40
+5	PT	Portugal	Por	Portugal	B	#c00016	#00ba40
+6	AR	Argentine	Arg	Argentine	D	#29abe2	#ffffff
+7	BE	Belgique	Bel	Belgique	G	#ffcd00	#dc1f1e
+8	PL	Pologne	Pol	Pologne	H	#b50000	#ffffff
+9	ES	Espagne	Esp	Espagne	B	#dc1f1e	#ffcd00
+10	PE	Pérou	Pér	Pérou	C	#fffaf3	#b50000
+11	CH	Suisse	Sui	Suisse	E	#ed1c24	#ffffff
+12	AN	Angleterre	Ang	Angleterre	G	#ff7099	#000000
+13	CO	Colombie	Col	Colombie	H	#ffcd00	#1b1464
+14	MX	Mexique	Mex	Mexique	F	#14916d	#ffffff
+15	UY	Uruguay	Uru	Uruguay	A	#29abe2	#000000
+16	HR	Croatie	Cro	Croatie	D	#ff0016	#ffffff
+17	DK	Danemark	Dan	Danemark	C	#c00016	#ffffff
+18	IS	Islande	Isl	Islande	D	#005ca9	#ff0016
+19	CR	Costa Rica	CoRi	Costa Rica	E	#c00016	#1b1464
+20	SE	Suède	Suè	Suède	F	#236ce2	#ffcd00
+21	TN	Tunisie	Tun	Tunisie	G	#fffaf3	#ff0016
+22	EG	Egypte	Egy	Egypte	A	#ed1c24	#000000
+23	SN	Sénégal	Sén	Sénégal	H	#005830	#ed1c24
+24	IR	Iran	Iran	Iran	B	#fffaf3	#ed1c24
+25	RS	Serbie	Ser	Serbie	E	#fffaf3	#dc1f1e
+26	NG	Nigeria	Nig	Nigeria	D	#fffaf3	#007540
+27	AU	Australie	Aus	Australie	C	#1b1464	#ffcd00
+28	JP	Japon	Jap	Japon	H	#236ce2	#1b1464
+29	MA	Maroc	Mar	Maroc	B	#ed1c24	#005830
+30	PA	Panama	Pan	Panama	G	#dc1f1e	#1b1464
+31	KR	Corée du S.	CdS	Corée du Sud	F	#dc1f1e	#ffffff
+32	SA	A. Saoudite	ArS	Arabie Saoudite	A	#007540	#ffffff

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+    <title>Libération.fr – Coupe du monde 2018 : Faites vos jeux !</title>
+    <meta name="description" content="Tout savoir sur les dernières actualités politiques, monde, société, sports, écologie avec le journal en ligne Libération.">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+    <meta name="keywords" content="actualités, news">
+    <link rel="shortcut icon" href="http://www.liberation.fr/favicon.ico">
+    <link rel="shortcut icon" href="http://www.liberation.fr/favicon.png">
+    <link rel="canonical" href="http://www.liberation.fr/apps/2017/12/pronostic-coupe-du-monde/">
+    <meta property="og:site_name" content="Libération.fr"/>
+    <meta property="og:url" content="http://www.liberation.fr/apps/2017/12/pronostic-coupe-du-monde/" />
+    <meta property="og:title" content="Coupe du monde 2018 : Faites vos jeux !" />
+    <meta property="og:description" content="Faites votre pronostic pour la Coupe du monde de foot 2018 ! La France, l'Espagne, le Brésil : qui accrochera une étoile à son maillot en Russie ? Faites vos jeux avec l'application Libé." />
+    <meta property="og:image" content="http://www.liberation.fr/apps/2017/12/pronostic-coupe-du-monde/assets/social.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@libe" />
+    <meta name="twitter:creator" content="@libe" />
+    <meta name="twitter:url" content="http://www.liberation.fr/apps/2017/12/pronostic-coupe-du-monde/" />
+    <meta name="twitter:title" content="Coupe du monde 2018 : Faites vos jeux !" />
+    <meta name="twitter:description" content="Faites votre pronostic pour la Coupe du monde de foot 2018 ! La France, l'Espagne, le Brésil : qui accrochera une étoile à son maillot en Russie ? Faites vos jeux avec l'application Libé." />
+    <meta name="twitter:image" content="http://www.liberation.fr/apps/2017/12/pronostic-coupe-du-monde/assets/social.jpg">
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="bower_components/dragular.js/dist/dragular.min.js"></script>
+    <script type="text/javascript" src="bower_components/d3/d3.min.js"></script>
+    <script type="text/javascript" src="bower_components/lodash/lodash.min.js"></script>
+    <script type="text/javascript" src="bower_components/string/dist/string.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <!-- <script type="text/javascript" src="js/export.js"></script> -->
+    <link type="text/css" rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+    <link type="text/css" rel="stylesheet" href="bower_components/dragular.js/dist/dragular.min.css">
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <link type="text/css" rel="stylesheet" href="svg.css">
+  </head>
+  <body ng-cloak ng-controller="RugbyController">
+    <div id="container" class="container">
+      <div class="row title">
+        <div class="col-xs-24 col-xs-offset-0 col-md-20 col-md-offset-2">
+          <h1>Mondial 2018&nbsp;:<br />qui sera champion du&nbsp;monde&nbsp;?</h1>
+          <p class="title__chapo">On connaît désormais les affiches des huitièmes de finale de la Coupe du monde&nbsp;! Qui succédera à l'Allemagne, éliminée dès le premier tour&nbsp;? Les&nbsp;Bleus accrocheront-ils une deuxième étoile à leur maillot&nbsp;? Ou le Brésil un sixième titre&nbsp;?</p>
+          <p><br></p>
+          <p class="title__man hidden-sm hidden-xs">Cliquez sur les flèches à partir des huitièmes de finale...</p>
+          <!-- Phase de poules -->
+          <!-- <p class="title__man visible-sm visible-xs">Choisissez qui terminera aux deux premières places de chaque poule.</p> -->
+          <!-- Phase finale -->
+          <!-- ne rien afficher -->
+        </div>
+      </div>
+      <!-- Phase de poules -->
+      <!-- <div class="row" id="phases-de-poule"> -->
+      <!-- Phase finale -->
+      <div class="row hidden-sm hidden-xs" id="phases-de-poule">
+        <div class="group col-md-3" ng-repeat="(groupname, group) in groups">
+          <span class="group__name">{{ groupname }}</span>
+          <div class="group__inner hidden-sm hidden-xs">
+            <ul x-group="{{ groupname }}"  class="group__flags" dragular="dragularOptions">
+              <li ng-style="getOpacityFor(team)" x-team="{{ team.id }}" class="group__flag" ng-repeat="team in group">
+                <span>{{ team.country }}</span>
+                <img title="{{ team.country }}" ng-src="assets/flags/{{ team.slug }}.png">
+              </li>
+            </ul>
+            <ul class="group__pronostics">
+              <li dragular="dragularDropOptions" x-group="{{ groupname }}" ng-style="getPronosticStyle(groupname, 1)" class="group__pronostic"></li>
+              <li dragular="dragularDropOptions" x-group="{{ groupname }}" ng-style="getPronosticStyle(groupname, 2)" class="group__pronostic"></li>
+            </ul>
+          </div>
+          <div class="group__inner visible-sm visible-xs">
+            <!-- Phase de poules -->
+            <!-- <select class="form-control" ng-repeat="x in [0, 1]" ng-model="selectModels[groupname][x]" ng-change="onSelectChange(groupname, x)" ng-options="team.slug as team.country for team in group"> -->
+            <!-- Phase finale -->
+            <select ng-disabled="locked" class="form-control" ng-repeat="x in [0, 1]" ng-model="selectModels[groupname][x]" ng-change="onSelectChange(groupname, x)" ng-options="team.slug as team.country for team in group">
+              <option value="">{{(x + 1)}}<sup>{{getSup(x)}}</sup> du groupe</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <!-- Phase de poules -->
+      <!-- <p class="buttons montrer-phase-finale visible-sm visible-xs"> -->
+      <!-- Phase finale -->
+      <p class="buttons hidden">
+        <button type="button" ng-click="goNext()" id="montrer-phase-finale">
+        <i class="fa fa-trophy"></i>Phase finale
+        </button>
+        <span ng-if="empty" style="display: block; color: #e3234a; text-align: center;">Vous n'avez pas choisi les deux premiers de chaque groupe.</span>
+      </p>
+      <div class="trophy" ng-class="showNext()">
+        <div class="row" ng-repeat="round in palmares" ng-class="getRoundClass($index)" ng-init="roundIdx = $index">
+          <p ng-if="$index===0" style="text-align:center;" class="phase__finale">Phase finale</p>
+          <p ng-if="$index===0" class="title__man visible-sm visible-xs">Choisissez le vainqueur de chaque huitième de finale puis cliquez sur les flèches à partir des quarts de finale...</p>
+          <div ng-class="getMatchClass(roundIdx)" ng-repeat="match in round" ng-init="matchIdx = $index">
+            <div class="col-xs-12" ng-repeat="team in match" style="padding:0;">
+              <span ng-if="roundIdx === 0" class="group__name">{{ team.order }} {{ team.group }}</span>
+              <div ng-click="selectWinner(roundIdx, matchIdx, $index)" class="team" ng-style="getTeamStyle(roundIdx, matchIdx, $index)" title="{{ getFullName(roundIdx, matchIdx, $index) }}">
+                <span class="hidden-sm hidden-xs">{{ getCountryName(roundIdx, matchIdx, $index, false) }}</span>
+                <span class="visible-sm visible-xs">{{ getCountryName(roundIdx, matchIdx, $index, true) }}</span>
+              </div>
+              <a ng-click="selectWinner(roundIdx, matchIdx, $index)" ng-style="getArrowStyle(roundIdx, matchIdx, $index)">
+              <i class="fa fa-long-arrow-down fa-4x"></i>
+              </a>
+            </div>
+          </div>
+          <div class="group_inner visible-sm visible-xs col-xs-24" ng-if="$index===0">
+            <div class="form-group" ng-repeat="(i, match) in round">
+              <!-- Phase de poules -->
+              <!-- <select ng-disabled="locked" class="form-control" ng-model="selectEighth[i]" ng-change="onSelectEighthChange(i)"> -->
+              <!-- Phase finale -->
+              <select class="form-control" ng-model="selectEighth[i]" ng-change="onSelectEighthChange(i)">
+                <option value="">Vainqueur huitième - {{ (i + 1) }}</option>
+                <option ng-repeat="team in match" value="{{$index}}">{{ getWinnerGroup(team.group, team.order) }}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="buttons">
+        <!-- <button type="button" ng-click="export()">
+          <i class="fa fa-download"></i> Télécharger mon pronostic
+          </button> -->
+        <button type="button" ng-click="tweet()">
+        <i class="fa fa-twitter"></i> Tweeter
+        </button>
+        <button type="button" ng-click="shareOnFacebook()">
+        <i class="fa fa-facebook"></i> Partager
+        </button>
+        <button type="button" ng-click="refresh()">
+        <i class="fa fa-refresh"></i> Recommencer
+        </button>
+        <br>
+        <img src="./banwhatsapp.jpg">
+      </p>
+      <div align="center">
+        <p class="title__chapo"><a href="http://www.liberation.fr/coupe-du-monde-2018,100955" target="_blank">Retrouvez tous nos articles sur la Coupe du monde 2018</a></p>
+      </div>
+      <p class="buttons"><a href="http://www.liberation.fr/data-nouveaux-formats-six-plus,100538" target="_blank">
+        <img src="assets/logo.svg">
+        </a>
+      </p>
+    </div>
+    <!-- Header -->
+    <script type="text/javascript" src="http://www.liberation.fr/menu/script.js"></script>
+    <!-- Chartbeat -->
+    <script type='text/javascript'>
+      var _sf_async_config={};
+      _sf_async_config.uid = 43601;
+      _sf_async_config.domain = 'liberation.fr';
+      _sf_async_config.useCanonical = true;
+      _sf_async_config.sections = "Static";
+      _sf_async_config.authors = "Static";
+      (function(){
+          function loadChartbeat() {
+              window._sf_endpt=(new Date()).getTime();
+              var e = document.createElement('script');
+              e.setAttribute('language', 'javascript');
+              e.setAttribute('type', 'text/javascript');
+              e.setAttribute('src', 'http://static.chartbeat.com/' + 'js/chartbeat.js');
+              document.body.appendChild(e);
+          }
+          var oldonload = window.onload;
+          window.onload = (typeof window.onload != 'function') ?
+          loadChartbeat : function() { oldonload(); loadChartbeat(); };
+      })();
+    </script>
+    <!-- // Chartbeat -->
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-41822557-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <!-- // Google Analytics -->
+    <!-- Xiti -->
+    <script type="text/javascript">
+      xtnv = document;
+      xtsd = "http://logliberation";
+      xtsite = "381060";
+      xtn2 = "48";
+      xtpage = "Static::Data::2017-12-mondial-2018-pronostics";
+      xtdi = "";
+      xt_pagetype = "";
+      xt_multc = "&x1=0&x2=43&x3=&x4=&x5=&x6=7&x7=";
+      xt_an = "";
+      xt_ac = "";
+      if (window.xtparam==null) { window.xtparam = ''; }
+      window.xtparam += "&ptype="+xt_pagetype+"&ac="+xt_ac+"&an="+xt_an+xt_multc;
+    </script>
+    <noscript>
+      <img width="1" height="1" src="http://logliberation.xiti.com/hit.xiti?s=381060&amp;s2=56&amp;p=Static::Data::&amp;di=&amp;" >
+    </noscript>
+    <script type="text/javascript" src="http://s1.libe.com/bloom/theme/js/xtcore.js"></script>
+    <!-- // Xiti -->
+  </body>
+</html>
